@@ -10,7 +10,7 @@ const Top = () => {
                 <Text
                     className={undefined}
                     onClick={undefined}
-                    text={"Top"}
+                    text='トップ'
                 />
             </Wrapper>
         </div>
