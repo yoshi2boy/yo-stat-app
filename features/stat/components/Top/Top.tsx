@@ -9,7 +9,6 @@ const Top = () => {
             <Wrapper className={styles.wrapper}>
                 <Text
                     className={undefined}
-                    onClick={undefined}
                     text='トップ'
                 />
             </Wrapper>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import MUIButton from '@mui/material/Button';
 
 type Props = {
-    className: string | undefined;
+    className?: string;
     text: string;
     link: string;
 }

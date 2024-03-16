@@ -2,9 +2,9 @@ import { ReactNode } from "react";
 import MUIIconButton from '@mui/material/IconButton';
 
 type Props = {
-    className: string | undefined;
+    className?: string;
     children: ReactNode;
-    onClick: () => void | undefined;
+    onClick?: () => void;
 }
 
 const IconButton = ({ className, children, onClick }: Props) => {

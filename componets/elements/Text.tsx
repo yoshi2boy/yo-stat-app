@@ -1,9 +1,9 @@
 import MUITypography from '@mui/material/Typography';
 
 type Props = {
-    className: string | undefined;
+    className?: string;
     text: string;
-    onClick: () => void | undefined;
+    onClick?: () => void;
 }
 
 const Text = ({ className, text, onClick }: Props) => {
