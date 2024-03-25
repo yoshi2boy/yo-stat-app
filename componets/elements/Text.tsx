@@ -1,3 +1,4 @@
+import React from 'react';
 import MUITypography from '@mui/material/Typography';
 
 type Props = {
@@ -6,7 +7,7 @@ type Props = {
     onClick?: () => void;
 }
 
-const Text = ({ className, text, onClick }: Props) => {
+const Text = React.memo(({ className, text, onClick }: Props) => {
     return (
         <MUITypography
             className={className}
@@ -15,6 +16,6 @@ const Text = ({ className, text, onClick }: Props) => {
             {text}
         </MUITypography>
     );
-};
+});
 
 export default Text;

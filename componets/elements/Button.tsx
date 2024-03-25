@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import MUIButton from '@mui/material/Button';
 
@@ -7,7 +8,7 @@ type Props = {
     link: string;
 }
 
-const Button = ({ text, className, link }: Props) => {
+const Button = React.memo(({ text, className, link }: Props) => {
     return (
         <MUIButton className={className}>
             <Link href={link} passHref>
@@ -15,6 +16,6 @@ const Button = ({ text, className, link }: Props) => {
             </Link>
         </MUIButton>
     );
-};
+});
 
 export default Button;

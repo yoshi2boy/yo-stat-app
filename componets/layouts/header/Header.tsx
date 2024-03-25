@@ -6,21 +6,27 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Sidebar from '../sidebar/Sidebar';
 import IconButton from '@/componets/elements/IconButton';
 import React, { useState, useEffect, useRef } from 'react';
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const Header = () => {
     const [displayFlag, setDisplayFlag] = useState(false);
-    const sidebarRef = useRef<HTMLDivElement>(null); // HTMLDivElement型を指定
+    const sidebarRef = useRef<HTMLDivElement>(null);
+    const router = useRouter();
 
     const handleMenu = (): void => {
-        setDisplayFlag(!displayFlag); // displayFlagの状態をトグル
+        setDisplayFlag(!displayFlag);
     };
 
     const handleTitle = (): void => {
-        redirect('/top');
+        router.push('/top');
+    };
+
+    const handleMenuBtnClick = (page: string) => {
+        router.push(`/${page}`);
     };
 
     const handleClickOutside = (event: MouseEvent) => {
+        // クリックされた要素がsidebarRefが参照している要素に含まれているか確認
         if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) { // event.targetをNodeにキャスト
             setDisplayFlag(false);
         }
@@ -51,7 +57,10 @@ const Header = () => {
                 </Toolbar>
             </AppBar>
             <div ref={sidebarRef}>
-                <Sidebar displayFlag={displayFlag} />
+                <Sidebar
+                    displayFlag={displayFlag}
+                    handleMenuBtnClick={handleMenuBtnClick}
+                />
             </div>
         </>
     );

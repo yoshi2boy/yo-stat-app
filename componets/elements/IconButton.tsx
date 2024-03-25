@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import MUIIconButton from '@mui/material/IconButton';
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
     onClick?: () => void;
 }
 
-const IconButton = ({ className, children, onClick }: Props) => {
+const IconButton = React.memo(({ className, children, onClick }: Props) => {
 
     return (
         <MUIIconButton
@@ -17,6 +17,6 @@ const IconButton = ({ className, children, onClick }: Props) => {
             {children}
         </MUIIconButton>
     );
-};
+});
 
 export default IconButton;
